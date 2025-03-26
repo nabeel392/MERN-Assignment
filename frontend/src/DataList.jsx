@@ -15,11 +15,12 @@ const DataList = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`${API_BASE_URL}/data?page=${page}&limit=${limit}`);
+      const response = await axios.get(`${API_BASE_URL}/data?page${page}&limit${limit}`);
       setData(response.data);
-    } catch (err) {
-      setError("Failed to fetch data. Try again.");
-    } finally {
+    }  catch (err) {
+       setError(err.response.data.error);
+       console.log(err.response.data);
+      } finally {
       setLoading(false);
     }
   };
