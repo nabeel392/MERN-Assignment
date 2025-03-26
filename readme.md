@@ -8,13 +8,13 @@ This project consists of a **React frontend** and a **Node.js Express backend** 
 
 ### **Prerequisites**
 Ensure you have the following installed:
-- **Node.js** (>= 16.x recommended) → [Download Here](https://nodejs.org/)
+- **Node.js** (>= 16.x recommended)
 - **npm** (Comes with Node.js)
 
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/your-repo.git
-cd your-repo
+git clone https://github.com/nabeel392/MERN-Assignment.git
+cd MERN-Assignment
 ```
 
 ---
@@ -33,7 +33,8 @@ npm install
 
 ### **Run the Backend Server**
 ```sh
-npm start
+npm start  or
+node server.js
 ```
 This will start the backend on **http://localhost:5000**.
 
