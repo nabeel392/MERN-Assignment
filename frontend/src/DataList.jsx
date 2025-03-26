@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const DataList = () => {
-  const [data, setData] = useState([]); // API Data
-  const [loading, setLoading] = useState(true); // Loading state
-  const [error, setError] = useState(null); // Error state
-  const [page, setPage] = useState(1); // Page state
-  const [limit, setLimit] = useState(5); // Items per page
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(5);
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 
@@ -16,7 +16,7 @@ const DataList = () => {
     setError(null);
     try {
       const response = await axios.get(`${API_BASE_URL}/data?page=${page}&limit=${limit}`);
-      setData(response.data); // Store API data
+      setData(response.data);
     } catch (err) {
       setError("Failed to fetch data. Try again.");
     } finally {
@@ -39,9 +39,9 @@ const DataList = () => {
       <ul>
         {data.data && data.data.length > 0 ? (
           data.data.map((person) => (
-            <li key={person.id}>
+            <p key={person.id}>
               <strong>{person.name}</strong> - {person.profession}
-            </li>
+            </p>
           ))
         ) : (
           <p>No data available</p>

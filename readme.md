@@ -3,6 +3,18 @@
 This project consists of a **React frontend** and a **Node.js Express backend** that work together to fetch and display data. The frontend allows users to navigate to a `/data` route, where data is fetched from the backend API with pagination support.
 
 ---
+## 🛠️ Project Structire
+
+📂 project-root
+ ├── 📂 frontend  # React app (Vite)
+ ├── 📂 backend   # Node.js & Express server
+ ├── README.md    # Documentation
+
+
+## 🛠️ Tech Stack
+Frontend: React (Vite), Axios, React Router
+
+Backend: Node.js, Express, CORS, Nodemon
 
 ## 🛠️ Environment Setup
 
@@ -32,9 +44,14 @@ npm install
 ```
 
 ### **Run the Backend Server**
+Start the backend server using nodemon:
 ```sh
-npm start  or
-node server.js
+npm run dev
+```
+npm run dev uses nodemon, which automatically restarts the server when file changes are detected.
+If you want to start without nodemon, use:
+```sh
+npm start
 ```
 This will start the backend on **http://localhost:5000**.
 
