@@ -20,40 +20,40 @@ const data = [
 
 
 app.get("/data", (req, res) => {
-    try {
-      const page = parseInt(req.query.page) || 1;
-      const limit = parseInt(req.query.limit) || 5;
-  
-      // Check for invalid page/limit values
-      if (page < 1 || limit < 1) {
-        return res.status(400).json({ error: "Page and limit must be positive numbers." });
-      }
-  
-      const startIndex = (page - 1) * limit;
-      const paginatedData = data.slice(startIndex, startIndex + limit);
-  
-      // If no data is available for the given page
-      if (paginatedData.length === 0) {
-        return res.status(404).json({ error: "No data available for the requested page." });
-      }
-  
-      res.json({
-        page,
-        limit,
-        total: data.length,
-        totalPages: Math.ceil(data.length / limit),
-        data: paginatedData,
-      });
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      res.status(500).json({ error: "Internal Server Error" });
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 5;
+
+    // Check for invalid page/limit values
+    if (page < 1 || limit < 1) {
+      return res.status(400).json({ error: "Page and limit must be positive numbers." });
     }
-  });
-  
-  // Handle unknown routes
-  app.use((req, res) => {
-    res.status(404).json({ error: "Route not found" });
-  });
+
+    const startIndex = (page - 1) * limit;
+    const paginatedData = data.slice(startIndex, startIndex + limit);
+
+    // If no data is available for the given page
+    if (paginatedData.length === 0) {
+      return res.status(404).json({ error: "No data available for the requested page." });
+    }
+
+    res.json({
+      page,
+      limit,
+      total: data.length,
+      totalPages: Math.ceil(data.length / limit),
+      data: paginatedData,
+    });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Handle unknown routes
+app.use((req, res) => {
+  res.status(404).json({ error: "Route not found" });
+});
 
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
