@@ -5,10 +5,10 @@ This project consists of a **React frontend** and a **Node.js Express backend** 
 ---
 ## 🛠️ Project Structire
 
-📂 project-root
- ├── 📂 frontend  # React app (Vite)
- ├── 📂 backend   # Node.js & Express server
- ├── README.md    # Documentation
+-📂 project-root
+- ├── 📂 frontend  # React app (Vite)
+- ├── 📂 backend   # Node.js & Express server
+- ├── README.md    # Documentation
 
 
 ## 🛠️ Tech Stack
